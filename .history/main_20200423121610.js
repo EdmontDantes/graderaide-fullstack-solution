@@ -129,7 +129,7 @@ const createFromInputGrades = function(event) {
     const id = event.target.id
     const newGradeQueryInternal = document.querySelector(`#${id}.new-grade`);
     const newGradeAssignmentInternal = document.querySelector(`#${id}.new-grade-assignment`);
-    const btnSubmitNewGradePlusAssigmentToCurrentStudentInternal = document.querySelector(`#${id}.submit-new-grade-assignment`);
+    const btnSubmitNewGradePlusAssigmentToCurrentStudentInternal = document.querySelector(``.submit-new-grade-assignment');
     grade = newGradeQueryInternal.value;
     assignment = newGradeAssignmentInternal.value;
     
@@ -139,7 +139,7 @@ const createFromInputGrades = function(event) {
     gradeDisplayItem.innerText = `${newGradeAndAssignment.assignment}: ${newGradeAndAssignment.score}`;
     studentInfo.appendChild(gradeDisplayItem);
     
-    btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 }
 
+btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 

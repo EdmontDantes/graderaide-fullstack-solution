@@ -38,11 +38,6 @@ const Student = (name, course, term = 1) => {
     course,
     term,
     courses: [Course(course)],
-    grade: [],
-
-    addGrade: function (grade, assignment) {
-        this.grade.push([grade, assignment]);
-    },
 
     addCourse: function(course) {
         this.courses.push(Course(course));
@@ -99,11 +94,11 @@ const newStudentTile = function() {
     
 
     addGradesSection.className = `add-grades-inputs-and-submit`;
-    addGradesSection.id = `student-grade-section-${numId.length}`;
+    addGradesSection.id = `student-${numId.length}`;
     addGradesSection.innerHTML = `
-    <input type="text" name="new-grade" class="new-grade" id="grade-input-${numId.length}" placeholder="New Grade">
-    <input type="text" name="new-grade-assignment" class="new-grade-assignment" id="assignment-input-${numId.length}" placeholder="Assignment Name">
-    <button type="submit" class="submit-new-grade-assignment" id="btn-submit-grade-${numId.length}">Submit</button>`
+    <input type="text" name="new-grade" class="new-grade" id="${numId.length}" placeholder="New Grade">
+    <input type="text" name="new-grade-assignment" class="new-grade-assignment" id="${numId.length}" placeholder="Assignment Name">
+    <button type="submit" class="submit-new-grade-assignment" id="${numId.length}">Submit</button>`
     
     nameItem.innerText = `Name: ${newStudent.name}`;
     courseItem.innerText = `Course: ${newStudent.course}`;
@@ -111,7 +106,7 @@ const newStudentTile = function() {
     
     
     studentInfo.classList.add('student-info');
-    studentInfo.id = `student-info-${numId.length}`
+    student
     studentInfo.appendChild(nameItem);
     studentInfo.appendChild(courseItem);
     studentInfo.appendChild(termItem);
@@ -125,11 +120,10 @@ const newStudentTile = function() {
 btnNewStudentSubmitQuery.addEventListener('click', newStudentTile);
 
 
-const createFromInputGrades = function(event) {
-    const id = event.target.id
-    const newGradeQueryInternal = document.querySelector(`#${id}.new-grade`);
-    const newGradeAssignmentInternal = document.querySelector(`#${id}.new-grade-assignment`);
-    const btnSubmitNewGradePlusAssigmentToCurrentStudentInternal = document.querySelector(`#${id}.submit-new-grade-assignment`);
+const createFromInputGrades = function() {
+    const newGradeQueryInternal = document.querySelector('.new-grade');
+    const newGradeAssignmentInternal = document.querySelector('.new-grade-assignment');
+    const btnSubmitNewGradePlusAssigmentToCurrentStudentInternal = document.querySelector('.submit-new-grade-assignment');
     grade = newGradeQueryInternal.value;
     assignment = newGradeAssignmentInternal.value;
     
@@ -139,7 +133,7 @@ const createFromInputGrades = function(event) {
     gradeDisplayItem.innerText = `${newGradeAndAssignment.assignment}: ${newGradeAndAssignment.score}`;
     studentInfo.appendChild(gradeDisplayItem);
     
-    btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 }
 
+btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 
