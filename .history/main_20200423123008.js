@@ -92,6 +92,7 @@ const newStudentTile = function() {
 
     studentDisplay.id = `student-${numId.length}`;
     const studentInfo = document.createElement('ul');
+    student
     const nameItem = document.createElement('li');
     const courseItem = document.createElement('li');
     const termItem  = document.createElement('li');
@@ -111,7 +112,7 @@ const newStudentTile = function() {
     
     
     studentInfo.classList.add('student-info');
-    studentInfo.id = `student-info-id-${numId.length}`
+    studentInfo.id = `student-info-${numId.length}`
     studentInfo.appendChild(nameItem);
     studentInfo.appendChild(courseItem);
     studentInfo.appendChild(termItem);
@@ -127,22 +128,19 @@ btnNewStudentSubmitQuery.addEventListener('click', newStudentTile);
 
 const createFromInputGrades = function(event) {
     const id = event.target.id
-    const newGradeQueryInternal = document.querySelectorAll(`#${id}.new-grade`);
-    const newGradeAssignmentInternal = document.querySelectorAll(`#${id}.new-grade-assignment`);
-    const btnSubmitNewGradePlusAssigmentToCurrentStudentInternal = document.querySelectorAll(`#${id}.submit-new-grade-assignment`);
+    const newGradeQueryInternal = document.querySelector(`#${id}.new-grade`);
+    const newGradeAssignmentInternal = document.querySelector(`#${id}.new-grade-assignment`);
+    const btnSubmitNewGradePlusAssigmentToCurrentStudentInternal = document.querySelector(`#${id}.submit-new-grade-assignment`);
     grade = newGradeQueryInternal.value;
     assignment = newGradeAssignmentInternal.value;
     
     let newGradeAndAssignment = Grade(grade, assignment);
-    const StudentInfoRef = document.querySelectorAll(`#${id}.student-info`);
+    
     const gradeDisplayItem = document.createElement('li');
-    StudentInfoRef.appendChild(gradeDisplayItem);
     gradeDisplayItem.innerText = `${newGradeAndAssignment.assignment}: ${newGradeAndAssignment.score}`;
     studentInfo.appendChild(gradeDisplayItem);
     
+    btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 }
 
-const id = event.target.id
-const btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest = document.querySelector(`${id}`);
-btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest.addEventListener('click', createFromInputGrades);
 

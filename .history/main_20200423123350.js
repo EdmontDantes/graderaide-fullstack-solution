@@ -111,7 +111,7 @@ const newStudentTile = function() {
     
     
     studentInfo.classList.add('student-info');
-    studentInfo.id = `student-info-id-${numId.length}`
+    studentInfo.id = `student-info-${numId.length}`
     studentInfo.appendChild(nameItem);
     studentInfo.appendChild(courseItem);
     studentInfo.appendChild(termItem);
@@ -134,15 +134,12 @@ const createFromInputGrades = function(event) {
     assignment = newGradeAssignmentInternal.value;
     
     let newGradeAndAssignment = Grade(grade, assignment);
-    const StudentInfoRef = document.querySelectorAll(`#${id}.student-info`);
+    const StudentInfoRef = document.querySelector
     const gradeDisplayItem = document.createElement('li');
-    StudentInfoRef.appendChild(gradeDisplayItem);
     gradeDisplayItem.innerText = `${newGradeAndAssignment.assignment}: ${newGradeAndAssignment.score}`;
     studentInfo.appendChild(gradeDisplayItem);
     
+    btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 }
 
-const id = event.target.id
-const btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest = document.querySelector(`${id}`);
-btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest.addEventListener('click', createFromInputGrades);
 

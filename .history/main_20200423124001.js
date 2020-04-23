@@ -141,8 +141,6 @@ const createFromInputGrades = function(event) {
     studentInfo.appendChild(gradeDisplayItem);
     
 }
-
-const id = event.target.id
-const btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest = document.querySelector(`${id}`);
+const btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest = document.querySelectorAll(#btn-submit-grade-2');
 btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest.addEventListener('click', createFromInputGrades);
 

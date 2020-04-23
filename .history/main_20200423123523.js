@@ -135,14 +135,12 @@ const createFromInputGrades = function(event) {
     
     let newGradeAndAssignment = Grade(grade, assignment);
     const StudentInfoRef = document.querySelectorAll(`#${id}.student-info`);
+    StudentInfoRef.
     const gradeDisplayItem = document.createElement('li');
-    StudentInfoRef.appendChild(gradeDisplayItem);
     gradeDisplayItem.innerText = `${newGradeAndAssignment.assignment}: ${newGradeAndAssignment.score}`;
     studentInfo.appendChild(gradeDisplayItem);
     
+    btnSubmitNewGradePlusAssigmentToCurrentStudentInternal.addEventListener('click', createFromInputGrades);
 }
 
-const id = event.target.id
-const btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest = document.querySelector(`${id}`);
-btnSubmitNewGradePlusAssigmentToCurrentStudentInternalTest.addEventListener('click', createFromInputGrades);
 
